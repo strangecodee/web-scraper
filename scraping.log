@@ -1,0 +1,417 @@
+2025-08-19 17:38:55,739 - INFO - Found 831 valid links to process
+2025-08-19 17:38:55,740 - INFO - Processing 1/831: https://moneyview.whizdm.com/payment/init?l=ff808081925184b40192550850906f73&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:38:55,740 - INFO - ====== WebDriver manager ======
+2025-08-19 17:38:56,914 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:38:57,555 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:38:58,052 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:00,974 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081925184b40192550850906f73&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:02,474 - INFO - Found due amount via CSS: 8051
+2025-08-19 17:39:06,784 - INFO - Processing 2/831: https://moneyview.whizdm.com/payment/init?l=ff808081901f526f019021881aeb5bce&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:06,785 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:07,921 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:08,499 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:09,012 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:10,218 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081901f526f019021881aeb5bce&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:11,586 - INFO - Found due amount via CSS: 19401
+2025-08-19 17:39:15,887 - INFO - Processing 3/831: https://moneyview.whizdm.com/payment/init?l=ff8080818fed91e7018fef1521e249e4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:15,888 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:16,984 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:17,520 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:18,022 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:19,199 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818fed91e7018fef1521e249e4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:20,582 - INFO - Found due amount via CSS: 35477
+2025-08-19 17:39:24,816 - INFO - Processing 4/831: https://moneyview.whizdm.com/payment/init?l=ff8080819208c605019209b12d49609c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:24,817 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:25,899 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:26,438 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:26,889 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:28,201 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819208c605019209b12d49609c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:29,686 - INFO - Found due amount via CSS: 8105
+2025-08-19 17:39:33,969 - INFO - Processing 5/831: https://moneyview.whizdm.com/payment/init?l=ff8080819192dec30191934a16db7c64&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:33,969 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:35,072 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:35,641 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:36,157 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:37,378 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819192dec30191934a16db7c64&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:38,826 - INFO - Found due amount via CSS: 22342
+2025-08-19 17:39:43,155 - INFO - Processing 6/831: https://moneyview.whizdm.com/payment/init?l=ff80808191c015660191c33e179b5fd0&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:43,156 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:44,392 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:44,954 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:45,477 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:46,673 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808191c015660191c33e179b5fd0&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:48,000 - INFO - Found due amount via CSS: 11090
+2025-08-19 17:39:52,288 - INFO - Processing 7/831: https://moneyview.whizdm.com/payment/init?l=2c9fa040823a7e0b01823e49579f7af4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:52,288 - INFO - ====== WebDriver manager ======
+2025-08-19 17:39:53,551 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:54,176 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:39:54,679 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:39:55,903 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9fa040823a7e0b01823e49579f7af4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:39:57,650 - INFO - Found due amount via CSS: 26679
+2025-08-19 17:40:02,964 - INFO - Processing 8/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f70466e018f70aeaf0a15da&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:02,965 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:04,070 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:04,614 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:05,132 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:06,381 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f70466e018f70aeaf0a15da&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:07,992 - INFO - Found due amount via CSS: 5410
+2025-08-19 17:40:12,256 - INFO - Processing 9/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f7511d9018f75596f707a18&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:12,256 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:13,425 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:13,935 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:14,446 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:15,776 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f7511d9018f75596f707a18&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:17,151 - INFO - Found due amount via CSS: 21643
+2025-08-19 17:40:21,444 - INFO - Processing 10/831: https://moneyview.whizdm.com/payment/init?l=ff8080818fd76bc2018fd94aa83431dc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:21,444 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:22,606 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:23,153 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:23,712 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:24,964 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818fd76bc2018fd94aa83431dc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:29,122 - INFO - Found due amount via CSS: 5406
+2025-08-19 17:40:33,389 - INFO - Processing 11/831: https://moneyview.whizdm.com/payment/init?l=ff8080818db0a2b9018db1f95137086f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:33,389 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:34,605 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:34,997 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:35,439 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:36,690 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818db0a2b9018db1f95137086f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:38,708 - INFO - Found due amount via CSS: 11762
+2025-08-19 17:40:43,031 - INFO - Processing 12/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f0e66f8018f0ea72a813c2f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:43,032 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:44,406 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:44,946 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:45,410 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:46,629 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f0e66f8018f0ea72a813c2f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:50,536 - INFO - Found due amount via CSS: 13324
+2025-08-19 17:40:54,865 - INFO - Processing 13/831: https://moneyview.whizdm.com/payment/init?l=ff80808191631e900191662a7a2a3d3a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:40:54,866 - INFO - ====== WebDriver manager ======
+2025-08-19 17:40:56,092 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:56,760 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:40:57,256 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:40:58,509 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808191631e900191662a7a2a3d3a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:02,889 - INFO - Found due amount via CSS: 11933
+2025-08-19 17:41:07,206 - INFO - Processing 14/831: https://moneyview.whizdm.com/payment/init?l=ff8080818d102216018d11053ea90199&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:07,210 - INFO - ====== WebDriver manager ======
+2025-08-19 17:41:08,525 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:09,026 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:09,540 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:41:10,762 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818d102216018d11053ea90199&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:12,358 - INFO - Found due amount via CSS: 27845
+2025-08-19 17:41:16,665 - INFO - Processing 15/831: https://moneyview.whizdm.com/payment/init?l=ff80808191c04cc40191c1ada1585137&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:16,666 - INFO - ====== WebDriver manager ======
+2025-08-19 17:41:17,831 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:18,349 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:18,867 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:41:20,076 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808191c04cc40191c1ada1585137&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:21,619 - INFO - Found due amount via CSS: 5368
+2025-08-19 17:41:25,909 - INFO - Processing 16/831: https://moneyview.whizdm.com/payment/init?l=ff808081921d28b501921ecc69146d22&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:25,909 - INFO - ====== WebDriver manager ======
+2025-08-19 17:41:26,971 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:27,562 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:28,162 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:41:29,660 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081921d28b501921ecc69146d22&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:35,019 - INFO - Found due amount via CSS: 10425
+2025-08-19 17:41:39,308 - INFO - Processing 17/831: https://moneyview.whizdm.com/payment/init?l=ff80808191a159370191a1ea193c1f38&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:39,309 - INFO - ====== WebDriver manager ======
+2025-08-19 17:41:40,520 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:42,004 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:42,635 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:41:43,934 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808191a159370191a1ea193c1f38&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:46,318 - INFO - Found due amount via CSS: 12884
+2025-08-19 17:41:50,630 - INFO - Processing 18/831: https://moneyview.whizdm.com/payment/init?l=ff808081914f4a2d0191512f8fcf17cf&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:41:50,631 - INFO - ====== WebDriver manager ======
+2025-08-19 17:41:51,770 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:52,346 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:41:56,133 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:41:57,391 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081914f4a2d0191512f8fcf17cf&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:01,183 - INFO - Found due amount via CSS: 5854
+2025-08-19 17:42:05,514 - INFO - Processing 19/831: https://moneyview.whizdm.com/payment/init?l=ff8080818d62eedd018d64bad38f4448&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:05,515 - INFO - ====== WebDriver manager ======
+2025-08-19 17:42:06,624 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:07,211 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:07,810 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:42:09,086 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818d62eedd018d64bad38f4448&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:11,194 - INFO - Found due amount via CSS: 28545
+2025-08-19 17:42:15,455 - INFO - Processing 20/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f60cb1c018f617df02f3d7c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:15,456 - INFO - ====== WebDriver manager ======
+2025-08-19 17:42:16,614 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:17,231 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:17,751 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:42:18,975 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f60cb1c018f617df02f3d7c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:23,658 - INFO - Found due amount via CSS: 8889
+2025-08-19 17:42:27,857 - INFO - Processing 21/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f5b5cc9018f5b66a4c7307d&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:27,858 - INFO - ====== WebDriver manager ======
+2025-08-19 17:42:29,097 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:29,537 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:30,027 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:42:31,312 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f5b5cc9018f5b66a4c7307d&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:35,491 - INFO - Found due amount via CSS: 10456
+2025-08-19 17:42:39,787 - INFO - Processing 22/831: https://moneyview.whizdm.com/payment/init?l=ff808081891ac6ee01891ace37b2136a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:39,788 - INFO - ====== WebDriver manager ======
+2025-08-19 17:42:40,867 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:42,425 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:42,902 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:42:44,122 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081891ac6ee01891ace37b2136a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:48,869 - INFO - Found due amount via CSS: 13019
+2025-08-19 17:42:53,146 - INFO - Processing 23/831: https://moneyview.whizdm.com/payment/init?l=ff808081919f50ea0191a18106a0306c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:42:53,146 - INFO - ====== WebDriver manager ======
+2025-08-19 17:42:54,215 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:54,708 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:42:55,222 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:42:56,476 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081919f50ea0191a18106a0306c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:00,391 - INFO - Found due amount via CSS: 13716
+2025-08-19 17:43:04,651 - INFO - Processing 24/831: https://moneyview.whizdm.com/payment/init?l=2c9fa04082af061b0182b3b44ce131c8&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:04,651 - INFO - ====== WebDriver manager ======
+2025-08-19 17:43:05,864 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:06,406 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:06,998 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:43:08,209 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9fa04082af061b0182b3b44ce131c8&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:10,286 - INFO - Found due amount via CSS: 14862
+2025-08-19 17:43:14,552 - INFO - Processing 25/831: https://moneyview.whizdm.com/payment/init?l=2c9f916d705e3002017060efe6a97230&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:14,553 - INFO - ====== WebDriver manager ======
+2025-08-19 17:43:15,653 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:16,218 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:17,753 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:43:18,990 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9f916d705e3002017060efe6a97230&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:23,737 - INFO - Found due amount via CSS: 9635
+2025-08-19 17:43:28,084 - INFO - Processing 26/831: https://moneyview.whizdm.com/payment/init?l=ff8080819233ed800192342268bc5926&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:28,091 - INFO - ====== WebDriver manager ======
+2025-08-19 17:43:29,632 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:30,113 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:30,617 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:43:32,006 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819233ed800192342268bc5926&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:34,433 - INFO - Found due amount via CSS: 26134
+2025-08-19 17:43:38,627 - INFO - Processing 27/831: https://moneyview.whizdm.com/payment/init?l=ff8080819122545a01912270572a4200&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:38,629 - INFO - ====== WebDriver manager ======
+2025-08-19 17:43:39,833 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:40,379 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:41,024 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:43:42,249 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819122545a01912270572a4200&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:45,522 - INFO - Found due amount via CSS: 19008
+2025-08-19 17:43:49,812 - INFO - Processing 28/831: https://moneyview.whizdm.com/payment/init?l=ff80808190299eee01902a9032fb591b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:49,813 - INFO - ====== WebDriver manager ======
+2025-08-19 17:43:50,912 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:51,441 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:43:51,953 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:43:53,140 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808190299eee01902a9032fb591b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:55,517 - INFO - Found due amount via CSS: 14418
+2025-08-19 17:43:59,829 - INFO - Processing 29/831: https://moneyview.whizdm.com/payment/init?l=ff80808191f3bf500191f5d813da313d&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:43:59,830 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:00,947 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:01,397 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:01,826 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:03,003 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808191f3bf500191f5d813da313d&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:04,302 - INFO - Found due amount via CSS: 21344
+2025-08-19 17:44:08,579 - INFO - Processing 30/831: https://moneyview.whizdm.com/payment/init?l=ff8080819149965401914a997efc5c2c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:08,580 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:09,687 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:10,198 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:10,702 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:11,893 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819149965401914a997efc5c2c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:13,525 - INFO - Found due amount via CSS: 5695
+2025-08-19 17:44:17,818 - INFO - Processing 31/831: https://moneyview.whizdm.com/payment/init?l=2c9fa04082912a5001829c05e0d110dc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:17,819 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:18,893 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:19,305 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:19,823 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:21,023 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9fa04082912a5001829c05e0d110dc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:22,849 - INFO - Found due amount via CSS: 59761
+2025-08-19 17:44:27,153 - INFO - Processing 32/831: https://moneyview.whizdm.com/payment/init?l=2c9f916d705cd6a901705e23825c573f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:27,154 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:28,308 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:29,449 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:29,868 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:31,037 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9f916d705cd6a901705e23825c573f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:32,479 - INFO - Found due amount via CSS: 43576
+2025-08-19 17:44:36,778 - INFO - Processing 33/831: https://moneyview.whizdm.com/payment/init?l=ff8080819265425f0192670837b23b7c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:36,778 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:37,840 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:38,370 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:38,861 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:40,078 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819265425f0192670837b23b7c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:44,630 - INFO - Found due amount via CSS: 14104
+2025-08-19 17:44:48,925 - INFO - Processing 34/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f7562b0018f7633d0ea02dd&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:48,926 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:50,003 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:50,439 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:44:50,894 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:44:52,120 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f7562b0018f7633d0ea02dd&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:54,092 - INFO - Found due amount via CSS: 5576
+2025-08-19 17:44:58,396 - INFO - Processing 35/831: https://moneyview.whizdm.com/payment/init?l=ff8080818a6db1c5018a798a98021c91&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:44:58,396 - INFO - ====== WebDriver manager ======
+2025-08-19 17:44:59,724 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:00,163 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:00,602 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:01,814 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818a6db1c5018a798a98021c91&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:06,356 - INFO - Found due amount via CSS: 55226
+2025-08-19 17:45:10,687 - INFO - Processing 36/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f8a0393018f8a8e6ff03b7a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:10,687 - INFO - ====== WebDriver manager ======
+2025-08-19 17:45:11,773 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:13,335 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:13,855 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:15,102 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f8a0393018f8a8e6ff03b7a&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:17,292 - INFO - Found due amount via CSS: 20824
+2025-08-19 17:45:21,586 - INFO - Processing 37/831: https://moneyview.whizdm.com/payment/init?l=ff8080819014a9f10190150c5b7c38ee&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:21,587 - INFO - ====== WebDriver manager ======
+2025-08-19 17:45:22,721 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:23,306 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:23,821 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:25,051 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819014a9f10190150c5b7c38ee&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:28,538 - INFO - Found due amount via CSS: 18630
+2025-08-19 17:45:32,837 - INFO - Processing 38/831: https://moneyview.whizdm.com/payment/init?l=ff80808190f27fb30190f437016c50d6&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:32,838 - INFO - ====== WebDriver manager ======
+2025-08-19 17:45:34,019 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:35,590 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:36,109 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:37,356 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808190f27fb30190f437016c50d6&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:39,448 - INFO - Found due amount via CSS: 14362
+2025-08-19 17:45:43,727 - INFO - Processing 39/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f7a97ae018f7afdd7985092&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:43,727 - INFO - ====== WebDriver manager ======
+2025-08-19 17:45:44,862 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:45,420 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:45,926 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:47,153 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f7a97ae018f7afdd7985092&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:51,319 - INFO - Found due amount via CSS: 13428
+2025-08-19 17:45:55,649 - INFO - Processing 40/831: https://moneyview.whizdm.com/payment/init?l=ff8080819273a2c30192742f7bcc0d71&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:45:55,649 - INFO - ====== WebDriver manager ======
+2025-08-19 17:45:56,897 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:57,503 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:45:58,053 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:45:59,286 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819273a2c30192742f7bcc0d71&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:02,240 - INFO - Found due amount via CSS: 18342
+2025-08-19 17:46:06,546 - INFO - Processing 41/831: https://moneyview.whizdm.com/payment/init?l=ff8080818bcbbe73018bcd98bdf5651e&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:06,547 - INFO - ====== WebDriver manager ======
+2025-08-19 17:46:07,845 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:08,552 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:09,279 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:46:10,542 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818bcbbe73018bcd98bdf5651e&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:11,824 - INFO - Found due amount via CSS: 54615
+2025-08-19 17:46:16,087 - INFO - Processing 42/831: https://moneyview.whizdm.com/payment/init?l=ff808081889df2910188a3eeec505648&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:16,090 - INFO - ====== WebDriver manager ======
+2025-08-19 17:46:17,307 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:17,990 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:18,559 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:46:19,712 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081889df2910188a3eeec505648&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:24,204 - INFO - Found due amount via CSS: 29364
+2025-08-19 17:46:28,490 - INFO - Processing 43/831: https://moneyview.whizdm.com/payment/init?l=2c9f916d72a2a5ae0172a71ff85c7a1e&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:28,491 - INFO - ====== WebDriver manager ======
+2025-08-19 17:46:29,851 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:30,382 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:30,891 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:46:32,068 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=2c9f916d72a2a5ae0172a71ff85c7a1e&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:34,760 - INFO - Found due amount via CSS: 46134
+2025-08-19 17:46:39,043 - INFO - Processing 44/831: https://moneyview.whizdm.com/payment/init?l=ff80808192932da901929435ea965f18&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:39,044 - INFO - ====== WebDriver manager ======
+2025-08-19 17:46:40,101 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:40,620 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:41,139 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:46:42,365 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808192932da901929435ea965f18&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:45,384 - INFO - Found due amount via CSS: 4048
+2025-08-19 17:46:49,661 - INFO - Processing 45/831: https://moneyview.whizdm.com/payment/init?l=ff808081924adcd201924cef17fe7c44&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:49,662 - INFO - ====== WebDriver manager ======
+2025-08-19 17:46:50,836 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:51,482 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:46:52,087 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:46:53,339 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081924adcd201924cef17fe7c44&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:46:55,814 - INFO - Found due amount via CSS: 12553
+2025-08-19 17:47:00,133 - INFO - Processing 46/831: https://moneyview.whizdm.com/payment/init?l=ff80808192221881019224ab77f311fc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:00,134 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:01,283 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:01,957 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:02,634 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:47:03,858 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808192221881019224ab77f311fc&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:06,402 - INFO - Found due amount via CSS: 16989
+2025-08-19 17:47:10,755 - INFO - Processing 47/831: https://moneyview.whizdm.com/payment/init?l=ff8080818eb6aba5018eb89f616e4c74&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:10,756 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:11,943 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:12,463 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:12,974 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:47:14,179 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818eb6aba5018eb89f616e4c74&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:15,636 - INFO - Found due amount via CSS: 28890
+2025-08-19 17:47:19,938 - INFO - Processing 48/831: https://moneyview.whizdm.com/payment/init?l=ff808081926a31c701926cf53dc00c1b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:19,939 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:21,060 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:22,603 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:23,112 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:47:24,354 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081926a31c701926cf53dc00c1b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:26,594 - INFO - Found due amount via CSS: 5086
+2025-08-19 17:47:30,908 - INFO - Processing 49/831: https://moneyview.whizdm.com/payment/init?l=ff8080819294b8700192968cf6f319e0&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:30,909 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:32,069 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:33,558 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:34,067 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:47:35,316 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819294b8700192968cf6f319e0&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:39,620 - INFO - Found due amount via CSS: 20997
+2025-08-19 17:47:43,896 - INFO - Processing 50/831: https://moneyview.whizdm.com/payment/init?l=ff808081922775e70192286feedb71e5&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:43,897 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:45,040 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:45,545 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:47:46,066 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:47:47,302 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff808081922775e70192286feedb71e5&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:50,099 - INFO - Found due amount via CSS: 4591
+2025-08-19 17:47:54,447 - INFO - Processing 51/831: https://moneyview.whizdm.com/payment/init?l=ff8080818d0b903b018d0d50257c2a62&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:47:54,448 - INFO - ====== WebDriver manager ======
+2025-08-19 17:47:55,557 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:18,101 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:18,611 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:48:19,844 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818d0b903b018d0d50257c2a62&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:21,185 - INFO - Found due amount via CSS: 7509
+2025-08-19 17:48:25,517 - INFO - Processing 52/831: https://moneyview.whizdm.com/payment/init?l=ff8080818f952b34018f95f135f33846&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:25,519 - INFO - ====== WebDriver manager ======
+2025-08-19 17:48:26,841 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:27,453 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:28,960 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:48:30,152 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818f952b34018f95f135f33846&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:33,213 - INFO - Found due amount via CSS: 4901
+2025-08-19 17:48:37,513 - INFO - Processing 53/831: https://moneyview.whizdm.com/payment/init?l=ff8080818fb81ec5018fb862d192688b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:37,513 - INFO - ====== WebDriver manager ======
+2025-08-19 17:48:38,791 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:39,202 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:39,613 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:48:40,762 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818fb81ec5018fb862d192688b&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:42,152 - INFO - Found due amount via CSS: 4958
+2025-08-19 17:48:46,417 - INFO - Processing 54/831: https://moneyview.whizdm.com/payment/init?l=ff8080818ee52f68018ee583605f4a0c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:46,418 - INFO - ====== WebDriver manager ======
+2025-08-19 17:48:47,971 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:48,400 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:48,891 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:48:50,216 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818ee52f68018ee583605f4a0c&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:51,562 - INFO - Found due amount via CSS: 8387
+2025-08-19 17:48:55,821 - INFO - Processing 55/831: https://moneyview.whizdm.com/payment/init?l=ff8080818ec154af018ec2769b034428&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:48:55,822 - INFO - ====== WebDriver manager ======
+2025-08-19 17:48:57,012 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:57,456 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:48:58,014 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:48:59,577 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818ec154af018ec2769b034428&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:01,694 - INFO - Found due amount via CSS: 7369
+2025-08-19 17:49:06,001 - INFO - Processing 56/831: https://moneyview.whizdm.com/payment/init?l=ff80808190909944019090d64ccf7fc4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:06,002 - INFO - ====== WebDriver manager ======
+2025-08-19 17:49:07,354 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:07,882 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:08,392 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:49:09,677 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808190909944019090d64ccf7fc4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:11,541 - INFO - Found due amount via CSS: 8338
+2025-08-19 17:49:15,803 - INFO - Processing 57/831: https://moneyview.whizdm.com/payment/init?l=ff8080818a69d7c6018a6b353a640862&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:15,804 - INFO - ====== WebDriver manager ======
+2025-08-19 17:49:17,026 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:17,592 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:18,114 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:49:19,365 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080818a69d7c6018a6b353a640862&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:22,172 - INFO - Found due amount via CSS: 8378
+2025-08-19 17:49:26,428 - INFO - Processing 58/831: https://moneyview.whizdm.com/payment/init?l=ff80808188e4988a0188e4e0a3e32ab4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:26,428 - INFO - ====== WebDriver manager ======
+2025-08-19 17:49:27,577 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:28,146 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:28,563 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:49:29,775 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff80808188e4988a0188e4e0a3e32ab4&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:32,179 - INFO - Found due amount via CSS: 18279
+2025-08-19 17:49:36,441 - INFO - Processing 59/831: https://moneyview.whizdm.com/payment/init?l=ff8080819069950001906a792af62340&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:36,442 - INFO - ====== WebDriver manager ======
+2025-08-19 17:49:37,968 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:38,609 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-19 17:49:39,100 - INFO - Driver [C:\Users\Kapish Enterprises\.wdm\drivers\chromedriver\win64\139.0.7258.68\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-19 17:49:40,335 - INFO - Processing URL: https://moneyview.whizdm.com/payment/init?l=ff8080819069950001906a792af62340&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:42,351 - INFO - Found due amount via CSS: 21056
+2025-08-19 17:49:46,630 - INFO - Processing 60/831: https://moneyview.whizdm.com/payment/init?l=ff8080819076a731019079149b6b2f1f&paymentIntent=dues&source=web&originSource=agency
+2025-08-19 17:49:46,633 - INFO - ====== WebDriver manager ======
+2025-08-19 17:49:47,993 - INFO - Get LATEST chromedriver version for google-chrome
