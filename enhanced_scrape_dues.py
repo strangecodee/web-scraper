@@ -5,12 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 import logging
 import tkinter as tk
 from tkinter import filedialog
 from datetime import datetime
+import threading
+import tempfile
 
 # Set up logging
 import os
@@ -48,6 +52,9 @@ class DueAmountScraper:
         self.options.add_argument('--disable-blink-features=AutomationControlled')
         self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
         self.options.add_experimental_option('useAutomationExtension', False)
+
+        # Create a unique user data directory
+        self.options.add_argument(f"user-data-dir={tempfile.mkdtemp()}")
         
     def get_driver(self):
         """Create and return a Chrome driver instance."""
@@ -146,37 +153,44 @@ class DueAmountScraper:
             if driver:
                 driver.quit()
     
-    def process_links(self, input_file='links.txt', excel_file='New Microsoft Office Excel Worksheet (3) (1).xlsx', max_workers=5):
-        """Process all links from the input file using multithreading and update the given Excel file with due amounts."""
+    def process_links(self, input_file='links.txt', excel_file='New Microsoft Office Excel Worksheet (3) (1).xlsx', max_workers=5, realtime=False):
+        """Process all links from the input file using multithreading and update the given Excel file with due amounts.
+        If realtime=True, prints progress for each link as soon as it's processed.
+        """
         from concurrent.futures import ThreadPoolExecutor, as_completed
         try:
-            # Read links from file
             with open(input_file, 'r', encoding='utf-8') as f:
                 links = [line.strip() for line in f if line.strip() and str(line.strip()).lower() != 'nan']
 
             logging.info(f"Found {len(links)} valid links to process")
 
-            # Load the Excel file
             df_excel = pd.read_excel(excel_file)
             if 'link' not in df_excel.columns:
                 logging.error(f"Excel file does not contain 'link' column.")
+                print("Error: Excel file does not contain 'link' column.")
                 return None
 
-            # Prepare a mapping from link to index for fast update
+            if 'Due Amount' not in df_excel.columns:
+                df_excel['Due Amount'] = None
+
             link_to_index = {str(row['link']).strip(): idx for idx, row in df_excel.iterrows()}
 
-            # Results for logging
             results = []
             failed_links = []
+            print_lock = threading.Lock()
 
             def scrape_link(link):
                 due_amount = self.extract_due_amount(link)
+                status = 'Success' if due_amount and due_amount != 'Not found' and not str(due_amount).startswith('Error') else 'Failed'
                 result = {
                     'link': link,
                     'Due Amount': due_amount,
-                    'Status': 'Success' if due_amount and due_amount != 'Not found' and not due_amount.startswith('Error') else 'Failed',
+                    'Status': status,
                     'Timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 }
+                if realtime:
+                    with print_lock:
+                        print(f"[{result['Timestamp']}] {link} => {due_amount} ({status})")
                 return result
 
             with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -187,10 +201,10 @@ class DueAmountScraper:
                         result = future.result()
                         results.append(result)
                         logging.info(f"Processed {idx}/{len(links)}: {link}")
-                        # Update Excel DataFrame
                         if link in link_to_index:
                             df_excel.at[link_to_index[link], 'Due Amount'] = result['Due Amount']
-                        # Logging for success and error
+                            # Save after each update for real-time monitoring
+                            df_excel.to_excel(excel_file, index=False)
                         if result['Status'] == 'Success':
                             success_logger.info(f"{link} | Due Amount: {result['Due Amount']}")
                         else:
@@ -201,9 +215,8 @@ class DueAmountScraper:
                         error_logger.info(f"{link} | Exception: {exc}")
                         failed_links.append(link)
 
-            # Save updated Excel file
-            with pd.ExcelWriter(excel_file, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
-                df_excel.to_excel(writer, index=False)
+            # Save updated Excel file (overwrite, not append)
+            df_excel.to_excel(excel_file, index=False)
 
             logging.info(f"Scraping complete! Results updated in {excel_file}")
             logging.info(f"Total processed: {len(results)}")
@@ -217,14 +230,15 @@ class DueAmountScraper:
 
         except FileNotFoundError:
             logging.error(f"Input file {input_file} or Excel file {excel_file} not found")
+            print(f"Error: Input file {input_file} or Excel file {excel_file} not found")
             return None
         except Exception as e:
             logging.error(f"Error processing links: {str(e)}")
+            print(f"Error processing links: {str(e)}")
             return None
 
 def main():
     """Main execution function."""
-    # Step 1: User selects Excel file
     root = tk.Tk()
     root.withdraw()
     print("Please select the Excel file to upload...")
@@ -236,7 +250,6 @@ def main():
         print("No file selected. Exiting.")
         return
 
-    # Step 2: Extract links and save to links.txt
     try:
         df = pd.read_excel(excel_file)
         if 'link' in df.columns:
@@ -252,13 +265,12 @@ def main():
         print(f"An error occurred while reading Excel: {e}")
         return
 
-    # Step 3: Run scraping
     scraper = DueAmountScraper(headless=True)
     df_excel = None
     summary_results = None
     try:
-        df_excel = scraper.process_links(input_file='links.txt', excel_file=excel_file, max_workers=50)
-        # For summary, re-read links.txt and build summary_results
+        print("Starting scraping (real-time output below)...")
+        df_excel = scraper.process_links(input_file='links.txt', excel_file=excel_file, max_workers=10, realtime=True)
         with open('links.txt', 'r') as f:
             links = [line.strip() for line in f if line.strip() and str(line.strip()).lower() != 'nan']
         summary_results = []
@@ -266,6 +278,27 @@ def main():
             due_amount = df_excel.loc[df_excel['link'] == link, 'Due Amount'].values[0] if 'Due Amount' in df_excel.columns and link in df_excel['link'].values else None
             status = 'Success' if due_amount and due_amount != 'Not found' and not str(due_amount).startswith('Error') else 'Failed'
             summary_results.append({'link': link, 'Due Amount': due_amount, 'Status': status})
+
+        # --- Save with new filename including date and day ---
+        now = datetime.now()
+        date_str = now.strftime("%Y-%m-%d")
+        day_str = now.strftime("%A")
+        base, ext = os.path.splitext(excel_file)
+        default_name = f"{os.path.basename(base)}_{date_str}_{day_str}{ext}"
+
+        print("\nChoose where to save the updated Excel file...")
+        save_path = filedialog.asksaveasfilename(
+            title="Save Updated Excel File",
+            initialfile=default_name,
+            defaultextension=ext,
+            filetypes=[("Excel files", "*.xlsx;*.xls")]
+        )
+        if save_path:
+            df_excel.to_excel(save_path, index=False)
+            print(f"\nResults saved to: {save_path}")
+        else:
+            print("No save location selected. File not saved.")
+
     except Exception as e:
         print(f"An error occurred during scraping: {e}")
         return
