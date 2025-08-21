@@ -30,6 +30,17 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
+# Set up rotating file handler for optimized scraper
+from logging.handlers import RotatingFileHandler
+file_handler = RotatingFileHandler(
+    'optimized_scraper.log', 
+    maxBytes=10*1024*1024,  # 10MB max size
+    backupCount=5,          # Keep 5 backup files
+    mode='a'
+)
+file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+logging.getLogger().addHandler(file_handler)
+
 class OptimizedDueAmountScraper:
     def __init__(self, headless=True):
         """Initialize the scraper with optimized Chrome options."""

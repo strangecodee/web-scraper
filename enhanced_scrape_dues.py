@@ -23,15 +23,27 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-# Separate loggers for success and error
+# Separate loggers for success and error with rotation
+from logging.handlers import RotatingFileHandler
+
 success_logger = logging.getLogger('success_logger')
-success_handler = logging.FileHandler('success.log')
+success_handler = RotatingFileHandler(
+    'success.log', 
+    maxBytes=10*1024*1024,  # 10MB max size
+    backupCount=5,          # Keep 5 backup files
+    mode='a'
+)
 success_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
 success_logger.addHandler(success_handler)
 success_logger.setLevel(logging.INFO)
 
 error_logger = logging.getLogger('error_logger')
-error_handler = logging.FileHandler('error.log')
+error_handler = RotatingFileHandler(
+    'error.log',
+    maxBytes=10*1024*1024,  # 10MB max size
+    backupCount=5,          # Keep 5 backup files
+    mode='a'
+)
 error_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
 error_logger.addHandler(error_handler)
 error_logger.setLevel(logging.INFO)

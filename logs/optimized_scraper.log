@@ -1,0 +1,66 @@
+2025-08-22 01:09:10,474 - INFO - Found 3 links to process
+2025-08-22 01:09:10,474 - INFO - Found 3 links to process
+2025-08-22 01:09:10,474 - INFO - Found 3 links to process
+2025-08-22 01:09:10,539 - INFO - Processing batch 1/1
+2025-08-22 01:09:10,539 - INFO - Processing batch 1/1
+2025-08-22 01:09:10,539 - INFO - Processing batch 1/1
+2025-08-22 01:09:10,541 - INFO - ====== WebDriver manager ======
+2025-08-22 01:09:10,541 - INFO - ====== WebDriver manager ======
+2025-08-22 01:09:10,541 - INFO - ====== WebDriver manager ======
+2025-08-22 01:09:12,616 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:12,616 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:12,616 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:12,827 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:12,827 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:12,827 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:09:13,004 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:09:13,004 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:09:13,004 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:09:14,336 - INFO - Processing URL: https://example.com/page1
+2025-08-22 01:09:14,336 - INFO - Processing URL: https://example.com/page1
+2025-08-22 01:09:14,336 - INFO - Processing URL: https://example.com/page1
+2025-08-22 01:10:20,014 - INFO - ====== WebDriver manager ======
+2025-08-22 01:10:20,015 - INFO - Processed: https://example.com/page1 -> Not found
+2025-08-22 01:10:20,014 - INFO - ====== WebDriver manager ======
+2025-08-22 01:10:20,014 - INFO - ====== WebDriver manager ======
+2025-08-22 01:10:20,015 - INFO - Processed: https://example.com/page1 -> Not found
+2025-08-22 01:10:20,015 - INFO - Processed: https://example.com/page1 -> Not found
+2025-08-22 01:10:21,895 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:21,895 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:21,895 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:22,108 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:22,108 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:22,108 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:10:22,275 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:10:22,275 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:10:22,275 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:10:23,546 - INFO - Processing URL: https://example.com/page2
+2025-08-22 01:10:23,546 - INFO - Processing URL: https://example.com/page2
+2025-08-22 01:10:23,546 - INFO - Processing URL: https://example.com/page2
+2025-08-22 01:11:27,830 - INFO - ====== WebDriver manager ======
+2025-08-22 01:11:27,830 - INFO - ====== WebDriver manager ======
+2025-08-22 01:11:27,831 - INFO - Processed: https://example.com/page2 -> Not found
+2025-08-22 01:11:27,831 - INFO - Processed: https://example.com/page2 -> Not found
+2025-08-22 01:11:27,830 - INFO - ====== WebDriver manager ======
+2025-08-22 01:11:27,831 - INFO - Processed: https://example.com/page2 -> Not found
+2025-08-22 01:11:29,810 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:29,810 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:29,810 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:29,998 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:29,998 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:29,998 - INFO - Get LATEST chromedriver version for google-chrome
+2025-08-22 01:11:30,168 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:11:30,168 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:11:30,168 - INFO - Driver [C:\Users\91902\.wdm\drivers\chromedriver\win64\139.0.7258.138\chromedriver-win32/chromedriver.exe] found in cache
+2025-08-22 01:11:31,432 - INFO - Processing URL: https://example.com/page3
+2025-08-22 01:11:31,432 - INFO - Processing URL: https://example.com/page3
+2025-08-22 01:11:31,432 - INFO - Processing URL: https://example.com/page3
+2025-08-22 01:12:36,026 - INFO - Processed: https://example.com/page3 -> Not found
+2025-08-22 01:12:36,026 - INFO - Processed: https://example.com/page3 -> Not found
+2025-08-22 01:12:36,026 - INFO - Processed: https://example.com/page3 -> Not found
+2025-08-22 01:12:36,089 - INFO - Saved progress after batch 1
+2025-08-22 01:12:36,089 - INFO - Saved progress after batch 1
+2025-08-22 01:12:36,089 - INFO - Saved progress after batch 1
+2025-08-22 01:12:36,090 - INFO - Scraping complete! Processed 3 URLs
+2025-08-22 01:12:36,090 - INFO - Scraping complete! Processed 3 URLs
+2025-08-22 01:12:36,090 - INFO - Scraping complete! Processed 3 URLs
