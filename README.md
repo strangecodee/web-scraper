@@ -1,3 +1,23 @@
+<!-- ================= HEADER ================= -->
+<p align="center">
+  <a href="https://www.linkedin.com/in/annuragmaurya/" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/linkedin.png" width="40"/>
+  </a>
+  <a href="https://github.com/strangecodee" target="_blank">
+    <img src="https://img.icons8.com/fluency/48/github.png" width="40"/>
+  </a>
+  <a href="mailto:annu.exe@gmail.com" target="_blank">
+    <img src="https://img.icons8.com/color/48/gmail-new.png" width="40"/>
+  </a>
+</p>
+
+---
+
+# 👋 Hi, I'm Anurag Maurya  
+💻 Aspiring Full-Stack Developer | ☁️ Cloud & DevOps Enthusiast  
+
+---
+
 # 🕸️ Web Scraper – Automated Due Amount Extractor  
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg?logo=python)  
@@ -17,14 +37,30 @@ It extracts **due amounts** from a given list of URLs and stores the results int
 
 ---
 
+## ⚡ Features  
+
+- ✅ Automates **login & navigation**  
+- ✅ Extracts **due amount** values  
+- ✅ Saves results to **Excel/CSV**  
+- ✅ Supports **multi-threading** for speed  
+- ✅ Error handling with logging  
+
+---
+
+## 🚀 Tech Stack  
+
+- **Language**: Python 🐍  
+- **Automation**: Selenium  
+- **Data Handling**: Pandas  
+- **Output**: Excel / CSV  
+
+---
+
 ## 📂 Project Structure
-- `enhanced_scrape_dues.py` → Main script  
-- `requirements.txt` → Python dependencies  
-- `README.md` → Project documentation  
-- `output.xlsx` → (Generated) Output file with scraped data  
-
-
-
+- 📜`enhanced_scrape_dues.py` → Main script  
+- 📜`requirements.txt` → Python dependencies  
+- 📜`README.md` → Project documentation  
+- 📜`output.xlsx` → (Generated) Output file with scraped data  
 
 
 ---
@@ -78,35 +114,32 @@ After running the scraper, an `output.xlsx` file will be generated with the foll
 | MONEY VIEW  | Surabhi (MV NPA) |     | 1.03091E+11  | [Open](https://moneyview.whizdm.com/payment/init?l=ff8080818fed91e7018fef1521e249e4&paymentIntent=dues&source=web&originSource=agency)  | 35516      |
 | MONEY VIEW  | Surabhi (MV NPA) |     | 1.39459E+11  | [Open](https://moneyview.whizdm.com/payment/init?l=ff8080819208c605019209b12d49609c&paymentIntent=dues&source=web&originSource=agency)  | 8112       |
 
-
-### 🛠️ Tech Stack
-
-### 🐍 Python 3.8+
-
-### 🌐 Selenium (Web automation)
-
-### 📊 Pandas (Data handling)
-
-### 📑 OpenPyXL (Excel support)
-
-### 🧑‍💻 Author
-
-*👤 Anurag Maurya* 
-[<img src="https://img.icons8.com/color/48/000000/linkedin.png" width="30"/>](https://www.linkedin.com/in/annuragmaurya/)
-
-💻 Cloud & DevOps Enthusiast | Python Developer
-
+---
 ### ⭐ Contributing
 
 Contributions are welcome!
 If you'd like to improve this scraper, feel free to fork the repo and submit a pull request.
 
+---
 ### 📜 License
 
 This project is licensed under the MIT License – feel free to use and modify it.
 
+---
+
+<!-- ================= FOOTER ================= -->
+<p align="center">
+  Made with 💻 by <b>Anurag Maurya</b>  
+  <br/>
+  <a href="https://www.linkedin.com/in/annuragmaurya/" target="_blank">
+    <img src="https://img.icons8.com/color/48/000000/linkedin.png" width="30"/>
+  </a>
+  <a href="https://github.com/strangecodee" target="_blank">
+    <img src="https://img.icons8.com/fluency/48/github.png" width="30"/>
+  </a>
+  <a href="mailto:annu.exe@gmail.com" target="_blank">
+    <img src="https://img.icons8.com/color/48/gmail-new.png" width="30"/>
+  </a>
+</p>
 
 
-This project is licensed under the MIT License.
-
-<p align="center">Made with ❤️ by <a href="https://github.com/strangecodee">Anurag Maurya</a></p> ```
