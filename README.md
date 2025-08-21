@@ -109,12 +109,88 @@ python scrape_dues.py
 - Multithreading is used for faster processing (default: 5 threads)
 - Headless mode is enabled by default for better performance
 
-## Troubleshooting
+## ChromeDriver Troubleshooting Guide
 
-1. **Chrome not found**: Install Google Chrome browser
-2. **Driver issues**: webdriver-manager should handle this automatically
-3. **Excel file format**: Ensure your file has a 'link' column with valid URLs
-4. **Permission errors**: Run as administrator if needed on Windows
+### Common ChromeDriver Issues
+
+1. **Version Mismatch**: Chrome updated but ChromeDriver not available yet
+2. **Network Issues**: Cannot download ChromeDriver automatically
+3. **Permission Issues**: ChromeDriver cannot be executed
+
+### Quick Fixes
+
+#### Option 1: Use the ChromeDriver Fixer Script
+```bash
+python fix_chrome_driver.py
+```
+This script will:
+- Detect your Chrome version
+- Try multiple solutions automatically
+- Provide manual download instructions if needed
+
+#### Option 2: Use Enhanced ChromeDriver Manager
+```bash
+python chrome_driver_manager.py
+```
+Advanced tool with multiple fallback strategies and automatic compatibility detection.
+
+#### Option 3: Manual ChromeDriver Installation
+
+1. **Check your Chrome version**:
+   - Open Chrome → Settings → About Chrome
+   - Or run: `google-chrome --version` (Linux/Mac)
+
+2. **Download matching ChromeDriver**:
+   - Visit: https://chromedriver.chromium.org/downloads
+   - Download version matching your Chrome (e.g., 139.0.7258.x)
+   - Extract `chromedriver.exe` (Windows) or `chromedriver` (Linux/Mac)
+
+3. **Place in project folder**:
+   - Copy the extracted file to this project directory
+   - The scraper will automatically detect it
+
+#### Option 4: Use Compatible Chrome Version
+- Install Chrome version 138 or earlier
+- ChromeDriver for older versions is more readily available
+
+### Advanced Solutions
+
+#### For Chrome 139.0.7258.x Issues:
+Since ChromeDriver 139.x.x may not be available yet, try:
+
+1. **Find compatible version**:
+   ```bash
+   python fix_chrome_driver.py
+   ```
+   This will attempt to find the latest compatible version.
+
+2. **Use system PATH**:
+   - Download ChromeDriver manually
+   - Add it to your system PATH
+   - The scraper will use it automatically
+
+3. **Wait for update**:
+   - ChromeDriver typically gets updated within 1-2 days of Chrome release
+   - Check https://chromedriver.chromium.org/ for updates
+
+### Verification
+
+Test if ChromeDriver is working:
+```bash
+python test_installation.py
+```
+
+### Common Error Messages
+
+- `SessionNotCreatedException`: Version mismatch - use manual installation
+- `WebDriverException`: ChromeDriver not found - download manually
+- `TimeoutError`: Network issues - try manual download
+
+### Support Files
+
+- `fix_chrome_driver.py`: Automated troubleshooting tool
+- `chrome_driver_manager.py`: Enhanced driver management
+- `test_installation.py`: Verify ChromeDriver setup
 
 ## Output
 

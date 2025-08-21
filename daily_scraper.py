@@ -54,11 +54,36 @@ class DailyDueScraper:
         self.today = datetime.now().strftime('%Y-%m-%d')
         
     def get_driver(self):
-        """Create and return a Chrome driver instance."""
-        return webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=self.options
-        )
+        """Create and return a Chrome driver instance with enhanced fallback."""
+        try:
+            # First try webdriver_manager
+            driver_path = ChromeDriverManager().install()
+            service = Service(driver_path)
+            return webdriver.Chrome(service=service, options=self.options)
+        except Exception as e:
+            logging.warning(f"webdriver_manager failed: {e}")
+            logging.info("Trying fallback methods...")
+            
+            # Fallback 1: Check for local chromedriver
+            local_paths = ['chromedriver.exe', 'chromedriver']
+            for path in local_paths:
+                if os.path.exists(path):
+                    logging.info(f"Using local ChromeDriver: {path}")
+                    service = Service(path)
+                    return webdriver.Chrome(service=service, options=self.options)
+            
+            # Fallback 2: Try system PATH
+            try:
+                logging.info("Trying ChromeDriver from system PATH...")
+                return webdriver.Chrome(options=self.options)
+            except Exception as path_error:
+                logging.error(f"All ChromeDriver methods failed: {path_error}")
+                raise Exception(
+                    "ChromeDriver not found. Please:\n"
+                    "1. Download ChromeDriver from https://chromedriver.chromium.org/\n"
+                    "2. Place chromedriver.exe in this folder\n"
+                    "3. Or add it to your system PATH"
+                )
     
     def extract_due_amount(self, url):
         """Extract due amount from the specific input field."""

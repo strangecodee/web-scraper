@@ -51,11 +51,36 @@ class DueAmountScraper:
         self.options.add_experimental_option('useAutomationExtension', False)
         
     def get_driver(self):
-        """Create and return a Chrome driver instance."""
-        return webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=self.options
-        )
+        """Create and return a Chrome driver instance with enhanced fallback."""
+        try:
+            # First try webdriver_manager
+            driver_path = ChromeDriverManager().install()
+            service = Service(driver_path)
+            return webdriver.Chrome(service=service, options=self.options)
+        except Exception as e:
+            logging.warning(f"webdriver_manager failed: {e}")
+            logging.info("Trying fallback methods...")
+            
+            # Fallback 1: Check for local chromedriver
+            local_paths = ['chromedriver.exe', 'chromedriver']
+            for path in local_paths:
+                if os.path.exists(path):
+                    logging.info(f"Using local ChromeDriver: {path}")
+                    service = Service(path)
+                    return webdriver.Chrome(service=service, options=self.options)
+            
+            # Fallback 2: Try system PATH
+            try:
+                logging.info("Trying ChromeDriver from system PATH...")
+                return webdriver.Chrome(options=self.options)
+            except Exception as path_error:
+                logging.error(f"All ChromeDriver methods failed: {path_error}")
+                raise Exception(
+                    "ChromeDriver not found. Please:\n"
+                    "1. Download ChromeDriver from https://chromedriver.chromium.org/\n"
+                    "2. Place chromedriver.exe in this folder\n"
+                    "3. Or add it to your system PATH"
+                )
     
     def extract_due_amount(self, url):
         """Extract due amount from the specific input field."""
@@ -147,7 +172,7 @@ class DueAmountScraper:
             if driver:
                 driver.quit()
     
-    def process_links(self, input_file='links.txt', excel_file='New Microsoft Office Excel Worksheet (3) (1).xlsx', max_workers=5):
+    def process_links(self, input_file='links.txt', excel_file='New Microsoft Office Excel Worksheet (3) (1).xlsx', max_workers=3):
         """Process all links from the input file using multithreading and update the given Excel file with due amounts."""
         from concurrent.futures import ThreadPoolExecutor, as_completed
         try:
@@ -253,12 +278,12 @@ def main():
         print(f"An error occurred while reading Excel: {e}")
         return
 
-    # Step 3: Run scraping
+    # Step 3: Run scraping with optimized concurrency
     scraper = DueAmountScraper(headless=True)
     df_excel = None
     summary_results = None
     try:
-        df_excel = scraper.process_links(input_file='links.txt', excel_file=excel_file, max_workers=50)
+        df_excel = scraper.process_links(input_file='links.txt', excel_file=excel_file, max_workers=3)
         # For summary, re-read links.txt and build summary_results
         with open('links.txt', 'r') as f:
             links = [line.strip() for line in f if line.strip() and str(line.strip()).lower() != 'nan']
