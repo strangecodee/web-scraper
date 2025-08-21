@@ -1,4 +1,9 @@
-#main {now only this file will do this }
+#!/usr/bin/env python3
+"""
+Enhanced web scraper for daily due amount monitoring.
+Tracks changes over time and provides daily comparison reports.
+"""
+
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -10,33 +15,29 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 import time
 import logging
 import tkinter as tk
-from tkinter import filedialog
-from datetime import datetime
+from tkinter import filedialog, messagebox
+from datetime import datetime, timedelta
+import os
+import json
+from concurrent.futures import ThreadPoolExecutor, as_completed
+import shutil
 
 # Set up logging
-import os
 if not os.path.exists('screenshots'):
     os.makedirs('screenshots')
+if not os.path.exists('archive'):
+    os.makedirs('archive')
 
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(f'scraping_{datetime.now().strftime("%Y%m%d")}.log'),
+        logging.StreamHandler()
+    ]
 )
 
-# Separate loggers for success and error
-success_logger = logging.getLogger('success_logger')
-success_handler = logging.FileHandler('success.log')
-success_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
-success_logger.addHandler(success_handler)
-success_logger.setLevel(logging.INFO)
-
-error_logger = logging.getLogger('error_logger')
-error_handler = logging.FileHandler('error.log')
-error_handler.setFormatter(logging.Formatter('%(asctime)s - %(message)s'))
-error_logger.addHandler(error_handler)
-error_logger.setLevel(logging.INFO)
-
-class DueAmountScraper:
+class DailyDueScraper:
     def __init__(self, headless=True):
         """Initialize the scraper with Chrome options."""
         self.options = webdriver.ChromeOptions()
@@ -49,6 +50,8 @@ class DueAmountScraper:
         self.options.add_argument('--disable-blink-features=AutomationControlled')
         self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
         self.options.add_experimental_option('useAutomationExtension', False)
+        
+        self.today = datetime.now().strftime('%Y-%m-%d')
         
     def get_driver(self):
         """Create and return a Chrome driver instance."""
@@ -73,10 +76,10 @@ class DueAmountScraper:
             # Try multiple selectors to find the due amount input field
             selectors = [
                 "input[name='totalDue']",
-                "input[id*=':r']",  # Matches IDs like :r4:, :r5:, etc.
+                "input[id*=':r']",
                 "input[aria-invalid='false'][disabled]",
                 "input.MuiInputBase-input.MuiFilledInput-input.Mui-disabled",
-                "input[value*='8051']",  # If we know the value
+                "input[value*='8051']",
                 "//input[@name='totalDue']",
                 "//input[contains(@id, ':r') and @disabled]",
                 "//input[@aria-invalid='false' and @disabled]"
@@ -147,9 +150,67 @@ class DueAmountScraper:
             if driver:
                 driver.quit()
     
-    def process_links(self, input_file='links.txt', excel_file='New Microsoft Office Excel Worksheet (3) (1).xlsx', max_workers=5):
-        """Process all links from the input file using multithreading and update the given Excel file with due amounts."""
-        from concurrent.futures import ThreadPoolExecutor, as_completed
+    def load_previous_data(self, excel_file):
+        """Load previous day's data for comparison."""
+        previous_day = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+        archive_file = os.path.join('archive', f"{os.path.splitext(os.path.basename(excel_file))[0]}_{previous_day}.xlsx")
+        
+        if os.path.exists(archive_file):
+            try:
+                return pd.read_excel(archive_file)
+            except:
+                logging.warning(f"Could not load previous data from {archive_file}")
+        return None
+    
+    def archive_current_data(self, df, excel_file):
+        """Archive today's data for future reference."""
+        archive_file = os.path.join('archive', f"{os.path.splitext(os.path.basename(excel_file))[0]}_{self.today}.xlsx")
+        df.to_excel(archive_file, index=False)
+        logging.info(f"Data archived to {archive_file}")
+    
+    def generate_daily_report(self, current_df, previous_df, excel_file):
+        """Generate a daily comparison report."""
+        if previous_df is None:
+            logging.info("No previous data available for comparison")
+            return
+        
+        report_data = []
+        changes_count = 0
+        
+        for idx, current_row in current_df.iterrows():
+            link = current_row['link']
+            current_due = current_row.get('Due Amount', '')
+            previous_row = previous_df[previous_df['link'] == link]
+            
+            if not previous_row.empty:
+                previous_due = previous_row.iloc[0].get('Due Amount', '')
+                status = 'Changed' if str(current_due) != str(previous_due) else 'Unchanged'
+                if status == 'Changed':
+                    changes_count += 1
+            else:
+                previous_due = 'N/A'
+                status = 'New'
+                changes_count += 1
+            
+            report_data.append({
+                'link': link,
+                'Previous Due Amount': previous_due,
+                'Current Due Amount': current_due,
+                'Status': status,
+                'Scrape Date': self.today
+            })
+        
+        report_df = pd.DataFrame(report_data)
+        report_file = os.path.join('archive', f"daily_report_{self.today}.xlsx")
+        report_df.to_excel(report_file, index=False)
+        
+        logging.info(f"Daily report generated: {changes_count} changes detected")
+        logging.info(f"Report saved to {report_file}")
+        
+        return report_df
+    
+    def process_links_daily(self, input_file='links.txt', excel_file=None, max_workers=5):
+        """Process links with daily tracking and comparison."""
         try:
             # Read links from file
             with open(input_file, 'r', encoding='utf-8') as f:
@@ -160,13 +221,19 @@ class DueAmountScraper:
             # Load the Excel file
             df_excel = pd.read_excel(excel_file)
             if 'link' not in df_excel.columns:
-                logging.error(f"Excel file does not contain 'link' column.")
+                logging.error("Excel file does not contain 'link' column.")
                 return None
+
+            # Load previous day's data
+            previous_df = self.load_previous_data(excel_file)
 
             # Prepare a mapping from link to index for fast update
             link_to_index = {str(row['link']).strip(): idx for idx, row in df_excel.iterrows()}
 
-            # Results for logging
+            # Add date column if it doesn't exist
+            if 'Last Scraped' not in df_excel.columns:
+                df_excel['Last Scraped'] = ''
+
             results = []
             failed_links = []
 
@@ -188,25 +255,26 @@ class DueAmountScraper:
                         result = future.result()
                         results.append(result)
                         logging.info(f"Processed {idx}/{len(links)}: {link}")
+                        
                         # Update Excel DataFrame
                         if link in link_to_index:
                             df_excel.at[link_to_index[link], 'Due Amount'] = result['Due Amount']
-                        # Logging for success and error
-                        if result['Status'] == 'Success':
-                            success_logger.info(f"{link} | Due Amount: {result['Due Amount']}")
-                        else:
-                            error_logger.info(f"{link} | Due Amount: {result['Due Amount']}")
-                            failed_links.append(link)
+                            df_excel.at[link_to_index[link], 'Last Scraped'] = self.today
+                        
                     except Exception as exc:
                         logging.error(f"Exception for {link}: {exc}")
-                        error_logger.info(f"{link} | Exception: {exc}")
                         failed_links.append(link)
 
             # Save updated Excel file
-            with pd.ExcelWriter(excel_file, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
-                df_excel.to_excel(writer, index=False)
+            df_excel.to_excel(excel_file, index=False)
+            
+            # Archive today's data
+            self.archive_current_data(df_excel, excel_file)
+            
+            # Generate daily report
+            report_df = self.generate_daily_report(df_excel, previous_df, excel_file)
 
-            logging.info(f"Scraping complete! Results updated in {excel_file}")
+            logging.info(f"Daily scraping complete! Results updated in {excel_file}")
             logging.info(f"Total processed: {len(results)}")
             logging.info(f"Successful: {len([r for r in results if r['Status'] == 'Success'])}")
             logging.info(f"Failed: {len(failed_links)}")
@@ -214,25 +282,33 @@ class DueAmountScraper:
             if failed_links:
                 logging.info(f"Failed links: {failed_links}")
 
-            return df_excel
+            return df_excel, report_df
 
         except FileNotFoundError:
             logging.error(f"Input file {input_file} or Excel file {excel_file} not found")
-            return None
+            return None, None
         except Exception as e:
             logging.error(f"Error processing links: {str(e)}")
-            return None
+            return None, None
 
 def main():
-    """Main execution function."""
-    # Step 1: User selects Excel file
+    """Main execution function with daily scraping features."""
     root = tk.Tk()
     root.withdraw()
+    
+    print("=" * 50)
+    print("DAILY DUE AMOUNT SCRAPER")
+    print("=" * 50)
+    print(f"Date: {datetime.now().strftime('%Y-%m-%d')}")
+    print()
+    
+    # Step 1: User selects Excel file
     print("Please select the Excel file to upload...")
     excel_file = filedialog.askopenfilename(
         title="Select Excel File",
         filetypes=[("Excel files", "*.xlsx;*.xls")]
     )
+    
     if not excel_file:
         print("No file selected. Exiting.")
         return
@@ -245,7 +321,8 @@ def main():
             with open('links.txt', 'w') as f:
                 for link in links:
                     f.write(f"{link}\n")
-            print(f"Links extracted successfully from {excel_file} and saved to links.txt")
+            print(f"✓ Links extracted successfully from {excel_file}")
+            print(f"✓ {len(links)} links saved to links.txt")
         else:
             print("Error: 'link' column not found in the Excel file.")
             return
@@ -253,32 +330,41 @@ def main():
         print(f"An error occurred while reading Excel: {e}")
         return
 
-    # Step 3: Run scraping
-    scraper = DueAmountScraper(headless=True)
-    df_excel = None
-    summary_results = None
+    # Step 3: Run daily scraping
+    print("\nStarting daily scraping process...")
+    scraper = DailyDueScraper(headless=True)
+    
     try:
-        df_excel = scraper.process_links(input_file='links.txt', excel_file=excel_file, max_workers=50)
-        # For summary, re-read links.txt and build summary_results
-        with open('links.txt', 'r') as f:
-            links = [line.strip() for line in f if line.strip() and str(line.strip()).lower() != 'nan']
-        summary_results = []
-        for link in links:
-            due_amount = df_excel.loc[df_excel['link'] == link, 'Due Amount'].values[0] if 'Due Amount' in df_excel.columns and link in df_excel['link'].values else None
-            status = 'Success' if due_amount and due_amount != 'Not found' and not str(due_amount).startswith('Error') else 'Failed'
-            summary_results.append({'link': link, 'Due Amount': due_amount, 'Status': status})
+        df_excel, report_df = scraper.process_links_daily(
+            input_file='links.txt', 
+            excel_file=excel_file, 
+            max_workers=10
+        )
+        
+        if df_excel is not None:
+            print("\n" + "=" * 50)
+            print("DAILY SCRAPING SUMMARY")
+            print("=" * 50)
+            
+            # Count successful extractions
+            success_count = len([val for val in df_excel['Due Amount'] if val and val != 'Not found' and not str(val).startswith('Error')])
+            total_count = len(df_excel)
+            
+            print(f"Total URLs processed: {total_count}")
+            print(f"Successful extractions: {success_count}")
+            print(f"Success rate: {(success_count/total_count)*100:.1f}%")
+            
+            if report_df is not None:
+                changes = len(report_df[report_df['Status'] == 'Changed'])
+                print(f"Changes detected from previous day: {changes}")
+            
+            print(f"\nResults updated in: {excel_file}")
+            print("Daily report and archive available in 'archive/' folder")
+            print(f"Log file: scraping_{datetime.now().strftime('%Y%m%d')}.log")
+            
     except Exception as e:
         print(f"An error occurred during scraping: {e}")
         return
-
-    if df_excel is not None and summary_results is not None:
-        print("\nScraping Summary:")
-        print(f"Total URLs processed: {len(summary_results)}")
-        print(f"Successful extractions: {len([r for r in summary_results if r['Status'] == 'Success'])}")
-        print(f"Failed extractions: {len([r for r in summary_results if r['Status'] == 'Failed'])}")
-        print("\nFirst 10 results:")
-        for r in summary_results[:10]:
-            print(r)
 
 if __name__ == "__main__":
     main()
