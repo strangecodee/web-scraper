@@ -1,19 +1,23 @@
-import pandas as pd
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+import os
 import time
 import logging
+import requests
+import zipfile
+import subprocess
+import pandas as pd
 from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from tkinter import Tk, filedialog, messagebox
 
-# Set up logging
+# Simplified logging config
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
+    format='[%(levelname)s] %(message)s',
     handlers=[
         logging.FileHandler('scraping.log'),
         logging.StreamHandler()
@@ -22,7 +26,6 @@ logging.basicConfig(
 
 class DueAmountScraper:
     def __init__(self, headless=True):
-        """Initialize the scraper with Chrome options."""
         self.options = webdriver.ChromeOptions()
         if headless:
             self.options.add_argument('--headless')
@@ -33,68 +36,107 @@ class DueAmountScraper:
         self.options.add_argument('--disable-blink-features=AutomationControlled')
         self.options.add_experimental_option("excludeSwitches", ["enable-automation"])
         self.options.add_experimental_option('useAutomationExtension', False)
-        
+
+    def get_installed_chrome_version(self):
+        try:
+            output = subprocess.check_output(
+                r'reg query "HKEY_CURRENT_USER\Software\Google\Chrome\BLBeacon" /v version',
+                shell=True
+            ).decode(errors='ignore')
+            version = output.strip().split()[-1]
+            logging.info(f"Detected Chrome version: {version}")
+            return version
+        except Exception as e:
+            logging.error(f"Failed to detect Chrome version: {e}")
+            return None
+
+    def download_chromedriver(self, chrome_version):
+        platform = "win64"
+        url = f"https://storage.googleapis.com/chrome-for-testing-public/{chrome_version}/{platform}/chromedriver-{platform}.zip"
+        logging.info(f"Downloading ChromeDriver from: {url}")
+
+        driver_dir = os.path.abspath("drivers")
+        zip_path = os.path.join(driver_dir, "chromedriver.zip")
+        extract_path = os.path.join(driver_dir, "chromedriver")
+
+        os.makedirs(extract_path, exist_ok=True)
+
+        try:
+            r = requests.get(url, stream=True)
+            if r.status_code != 200:
+                raise Exception(f"ChromeDriver not found at {url}")
+
+            with open(zip_path, 'wb') as f:
+                f.write(r.content)
+
+            with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+                zip_ref.extractall(extract_path)
+
+            driver_path = os.path.join(extract_path, "chromedriver-win64", "chromedriver.exe")
+            if not os.path.exists(driver_path):
+                logging.error("ChromeDriver executable not found after extraction.")
+                return None
+            else:
+                logging.info(f"ChromeDriver downloaded and extracted to: {driver_path}")
+                return driver_path
+
+        except Exception as e:
+            logging.error(f"Error downloading ChromeDriver: {e}")
+            return None
+
     def get_driver(self):
-        """Create and return a Chrome driver instance."""
-        return webdriver.Chrome(
-            service=Service(ChromeDriverManager().install()),
-            options=self.options
-        )
-    
+        chrome_version = self.get_installed_chrome_version()
+        if not chrome_version:
+            raise Exception("Could not detect Chrome version.")
+
+        driver_path = self.download_chromedriver(chrome_version)
+        if not driver_path or not os.path.exists(driver_path):
+            raise Exception("ChromeDriver download failed or path invalid.")
+
+        return webdriver.Chrome(service=Service(driver_path), options=self.options)
+
     def extract_due_amount(self, url):
-        """Extract due amount from the specific input field."""
         driver = None
         try:
             driver = self.get_driver()
             logging.info(f"Processing URL: {url}")
-            
             driver.get(url)
-            
-            # Wait for the page to load
             wait = WebDriverWait(driver, 15)
-            
-            # Try multiple selectors to find the due amount input field
+
             selectors = [
                 "input[name='totalDue']",
-                "input[id*=':r']",  # Matches IDs like :r4:, :r5:, etc.
+                "input[id*=':r']",
                 "input[aria-invalid='false'][disabled]",
                 "input.MuiInputBase-input.MuiFilledInput-input.Mui-disabled",
-                "input[value*='8051']",  # If we know the value
+                "input[value*='8051']",
                 "//input[@name='totalDue']",
                 "//input[contains(@id, ':r') and @disabled]",
                 "//input[@aria-invalid='false' and @disabled]"
             ]
-            
+
             due_amount = None
-            
-            # Try CSS selectors first
+
             for selector in selectors[:5]:
                 try:
-                    element = wait.until(
-                        EC.presence_of_element_located((By.CSS_SELECTOR, selector))
-                    )
+                    element = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, selector)))
                     due_amount = element.get_attribute('value')
                     if due_amount:
                         logging.info(f"Found due amount via CSS: {due_amount}")
                         break
                 except:
                     continue
-            
-            # Try XPath selectors if CSS didn't work
+
             if not due_amount:
                 for xpath in selectors[5:]:
                     try:
-                        element = wait.until(
-                            EC.presence_of_element_located((By.XPATH, xpath))
-                        )
+                        element = wait.until(EC.presence_of_element_located((By.XPATH, xpath)))
                         due_amount = element.get_attribute('value')
                         if due_amount:
                             logging.info(f"Found due amount via XPath: {due_amount}")
                             break
                     except:
                         continue
-            
-            # Fallback: try to find any input with value attribute
+
             if not due_amount:
                 try:
                     inputs = driver.find_elements(By.TAG_NAME, 'input')
@@ -106,107 +148,124 @@ class DueAmountScraper:
                             break
                 except:
                     pass
-            
-            # Take screenshot for debugging
-            driver.save_screenshot(f"screenshot_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
-            
+
+            if not due_amount:
+                screenshot_path = f"screenshots/failed_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                os.makedirs("screenshots", exist_ok=True)
+                driver.save_screenshot(screenshot_path)
+                logging.info(f"Saved failure screenshot: {screenshot_path}")
+
             return due_amount if due_amount else "Not found"
-            
+
         except TimeoutException:
-            logging.error(f"Timeout loading URL: {url}")
-            return "Timeout"
+            logging.error(f"Timeout while processing URL: {url}")
+            if driver:
+                screenshot_path = f"screenshots/timeout_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                os.makedirs("screenshots", exist_ok=True)
+                driver.save_screenshot(screenshot_path)
+                logging.info(f"Saved timeout screenshot: {screenshot_path}")
+            return "Error: Timeout"
+
         except Exception as e:
-            logging.error(f"Error processing {url}: {str(e)}")
+            logging.error(f"Error processing URL {url}: {str(e)}")
+            if driver:
+                screenshot_path = f"screenshots/error_{datetime.now().strftime('%Y%m%d_%H%M%S')}.png"
+                os.makedirs("screenshots", exist_ok=True)
+                driver.save_screenshot(screenshot_path)
+                logging.info(f"Saved error screenshot: {screenshot_path}")
             return f"Error: {str(e)}"
+
         finally:
             if driver:
                 driver.quit()
-    
-    def process_links(self, input_file='links.txt', output_file='due_amounts_enhanced.xlsx'):
-        """Process all links from the input file."""
+
+    def process_links(self, input_file=None, sheet_name='Sheet2'):
         try:
-            # Read links from file
-            with open(input_file, 'r', encoding='utf-8') as f:
-                links = [line.strip() for line in f if line.strip() and str(line.strip()).lower() != 'nan']
-            
-            logging.info(f"Found {len(links)} valid links to process")
-            
-            results = []
-            failed_links = []
-            
-            for idx, link in enumerate(links, 1):
-                logging.info(f"Processing {idx}/{len(links)}: {link}")
-                
-                due_amount = self.extract_due_amount(link)
-                
-                result = {
-                    'URL': link,
-                    'Due Amount': due_amount,
-                    'Status': 'Success' if due_amount and due_amount != 'Not found' and not due_amount.startswith('Error') else 'Failed',
-                    'Timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-                }
-                
-                results.append(result)
-                
-                if result['Status'] == 'Failed':
-                    failed_links.append(link)
-                
-                # Add delay between requests
+            if input_file is None:
+                print("📂 Please select your Excel file with the 'link' column...")
+                root = Tk()
+                root.withdraw()
+                input_file = filedialog.askopenfilename(
+                    title="Select Excel File",
+                    filetypes=[("Excel files", "*.xlsx *.xls")]
+                )
+                root.destroy()
+                if not input_file:
+                    print("❌ No file selected. Exiting.")
+                    return None
+
+            df = pd.read_excel(input_file, sheet_name=sheet_name)
+
+            if 'link' not in df.columns:
+                logging.error("Excel file must contain a column named 'link'")
+                return None
+
+            logging.info(f"Found {len(df)} links to process")
+
+            os.makedirs("screenshots", exist_ok=True)
+
+            for idx, row in df.iterrows():
+                url = row['link']
+                due_amount = self.extract_due_amount(url)
+
+                status = 'Success' if due_amount and due_amount != 'Not found' and not due_amount.startswith('Error') else 'Failed'
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+                df.at[idx, 'Due Amount'] = due_amount
+                df.at[idx, 'Status'] = status
+                df.at[idx, 'Timestamp'] = timestamp
+
+                # Log progress every 10 or at last row
+                if (idx + 1) % 10 == 0 or idx == len(df) - 1:
+                    logging.info(f"Processed {idx + 1}/{len(df)} URLs")
+
                 time.sleep(2)
-            
-            # Create DataFrame and save results
-            df = pd.DataFrame(results)
-            
-            # Save to Excel with formatting
-            with pd.ExcelWriter(output_file, engine='openpyxl') as writer:
-                df.to_excel(writer, sheet_name='Due Amounts', index=False)
-                
-                # Get the workbook and worksheet
-                workbook = writer.book
-                worksheet = writer.sheets['Due Amounts']
-                
-                # Auto-adjust column widths
-                for column in worksheet.columns:
-                    max_length = 0
-                    column_letter = column[0].column_letter
-                    for cell in column:
-                        try:
-                            if len(str(cell.value)) > max_length:
-                                max_length = len(str(cell.value))
-                        except:
-                            pass
-                    adjusted_width = min(max_length + 2, 50)
-                    worksheet.column_dimensions[column_letter].width = adjusted_width
-            
-            logging.info(f"Scraping complete! Results saved to {output_file}")
-            logging.info(f"Total processed: {len(results)}")
-            logging.info(f"Successful: {len([r for r in results if r['Status'] == 'Success'])}")
-            logging.info(f"Failed: {len(failed_links)}")
-            
-            if failed_links:
-                logging.info(f"Failed links: {failed_links}")
-            
+
+            df.to_excel(input_file, sheet_name=sheet_name, index=False)
+            logging.info(f"✅ Updated Excel saved to {input_file}")
+
             return df
-            
+
         except FileNotFoundError:
-            logging.error(f"Input file {input_file} not found")
+            logging.error(f"File not found: {input_file}")
             return None
         except Exception as e:
-            logging.error(f"Error processing links: {str(e)}")
+            logging.error(f"Error: {str(e)}")
             return None
 
 def main():
-    """Main execution function."""
+    print("🔄 Starting Due Amount Scraper...\n")
     scraper = DueAmountScraper(headless=True)
+
     results = scraper.process_links()
-    
+
     if results is not None:
-        print("\nScraping Summary:")
-        print(f"Total URLs processed: {len(results)}")
-        print(f"Successful extractions: {len(results[results['Status'] == 'Success'])}")
-        print(f"Failed extractions: {len(results[results['Status'] == 'Failed'])}")
-        print("\nFirst 10 results:")
-        print(results.head(10))
+        total = len(results)
+        success = len(results[results['Status'] == 'Success'])
+        failed = total - success
+
+        print("\n📊 Scraping Summary:")
+        print(f"🔗 Total URLs processed : {total}")
+        print(f"✅ Successful extractions: {success}")
+        print(f"❌ Failed extractions    : {failed}")
+
+        print("\n📋 First 5 results:")
+        print(results[['URL', 'Due Amount', 'Status']].head(5).to_string(index=False))
+
+        if failed > 0:
+            print("\n🖼️  Check screenshots folder for failed cases.")
+
+        # Show popup summary
+        root = Tk()
+        root.withdraw()
+        messagebox.showinfo(
+            "Scraping Completed",
+            f"Total URLs processed: {total}\n"
+            f"Successful extractions: {success}\n"
+            f"Failed extractions: {failed}\n\n"
+            f"Results saved to your Excel file."
+        )
+        root.destroy()
 
 if __name__ == "__main__":
     main()
